@@ -30,8 +30,6 @@ func K3sCluster(ctx *pulumi.Context, org string, region string) (k3s *civo.Kuber
 		{Direction: pulumi.String("egress"), Action: pulumi.String("allow"), Cidrs: pulumi.StringArray{pulumi.String("0.0.0.0/0")}, Protocol: pulumi.String("udp"), StartPort: pulumi.String("0"), EndPort: pulumi.String("65535")},
 		{Direction: pulumi.String("egress"), Action: pulumi.String("allow"), Cidrs: pulumi.StringArray{pulumi.String("0.0.0.0/0")}, Protocol: pulumi.String("icmp")},
 		{Direction: pulumi.String("ingress"), Action: pulumi.String("allow"), Cidrs: pulumi.StringArray{pulumi.String(util.MyPublicIP())}, Protocol: pulumi.String("tcp"), StartPort: pulumi.String("6443"), EndPort: pulumi.String("6443")},
-		{Direction: pulumi.String("ingress"), Action: pulumi.String("allow"), Cidrs: pulumi.StringArray{pulumi.String("0.0.0.0/0")}, Protocol: pulumi.String("tcp"), StartPort: pulumi.String("80"), EndPort: pulumi.String("80")},
-		{Direction: pulumi.String("ingress"), Action: pulumi.String("allow"), Cidrs: pulumi.StringArray{pulumi.String("0.0.0.0/0")}, Protocol: pulumi.String("tcp"), StartPort: pulumi.String("443"), EndPort: pulumi.String("443")},
 	}
 
 	for k, rule := range firewallRules {
